@@ -15,9 +15,9 @@ struct AppUploadDocsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = AppViewModel()
+            let generalModel = GeneralViewModel()
             ContentView()
-                .environmentObject(viewModel)
+                .environmentObject(generalModel)
         }
     }
 }
