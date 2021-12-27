@@ -21,7 +21,6 @@
 		6FB01D46277959F800D9B50A /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D45277959F800D9B50A /* CreateAccount.swift */; };
 		6FB01D4827795A5800D9B50A /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D4727795A5800D9B50A /* AppViewModel.swift */; };
 		6FB01D4C2779611500D9B50A /* TouchIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D4B2779611500D9B50A /* TouchIDButton.swift */; };
-		6FB01D4F2779648900D9B50A /* UploadFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D4E2779648900D9B50A /* UploadFiles.swift */; };
 		8A69ABCF4C4939E9EE010074 /* Pods_AppUploadDocs_AppUploadDocsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F21B9F3B9400E96F441277 /* Pods_AppUploadDocs_AppUploadDocsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +59,6 @@
 		6FB01D45277959F800D9B50A /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\U0010CreateAccount.swift"; sourceTree = "<group>"; };
 		6FB01D4727795A5800D9B50A /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		6FB01D4B2779611500D9B50A /* TouchIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDButton.swift; sourceTree = "<group>"; };
-		6FB01D4E2779648900D9B50A /* UploadFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFiles.swift; sourceTree = "<group>"; };
 		76E69888F057D5FFD7002C5A /* Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; path = "Target Support Files/Pods-AppUploadDocs-AppUploadDocsUITests/Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B9E53C90685F04909BE64B0 /* Pods-AppUploadDocsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocsTests.debug.xcconfig"; path = "Target Support Files/Pods-AppUploadDocsTests/Pods-AppUploadDocsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF3E03DF3A82BB144833BDD1 /* Pods_AppUploadDocsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppUploadDocsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +192,6 @@
 		6FB01D4D2779644A00D9B50A /* UploadFile */ = {
 			isa = PBXGroup;
 			children = (
-				6FB01D4E2779648900D9B50A /* UploadFiles.swift */,
 			);
 			path = UploadFile;
 			sourceTree = "<group>";
@@ -453,7 +450,6 @@
 				6FB01D4C2779611500D9B50A /* TouchIDButton.swift in Sources */,
 				6FB01D442779598C00D9B50A /* Login.swift in Sources */,
 				6F0064672772A0B4004E57EA /* ContentView.swift in Sources */,
-				6FB01D4F2779648900D9B50A /* UploadFiles.swift in Sources */,
 				6F0064652772A0B4004E57EA /* AppUploadDocsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

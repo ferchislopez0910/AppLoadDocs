@@ -9,17 +9,17 @@ import SwiftUI
 import LocalAuthentication
 
 struct TouchIDButton: View {
-    
+    @EnvironmentObject var viewModel: AppViewModel
     @Binding var isValid: Bool
     var reason: String = "TouchId authentication needed!"
     
     var body: some View {
-        Button(action: verify, label: {
+        Button(action: viewModel.authenticateUser /*verify*/, label: {
             Image(systemName: LAContext().biometryType == .faceID ? "faceid" : "touchid")
                 .font(.title)
-                .foregroundColor(.black)
+                .foregroundColor(.red)
                 .padding()
-                .background(Color("green"))
+                .background(Color.white)
                 .clipShape(Circle())
         })
     }
@@ -35,6 +35,8 @@ struct TouchIDButton: View {
                 
                 DispatchQueue.main.async {
                     self.isValid = success
+                    self.viewModel.signedIn = true
+                    print("verify OK")
                 }
             }
             
