@@ -11,11 +11,11 @@ struct CreatedAccount: View {
 
     @State var email = ""
     @State var password = ""
-    @EnvironmentObject var viewModel: CreatedAccountModel
+    @StateObject var viewModel = CreatedAccountModel()
 
     var body: some View {
         VStack {
-                Image("logo")
+                Image("SophosIMG")
                     .resizable()
                     .scaledToFit()
                     .frame(width:150,height: 150)

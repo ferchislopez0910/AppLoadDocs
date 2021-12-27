@@ -13,15 +13,12 @@ struct Login: View {
     @StateObject var loginModel = LoginViewModel()
     @StateObject var generalModel = GeneralViewModel()
     
-    // when firts time user logged in via email store this for future biometric login
-    @AppStorage("storage_User") var user = "STORED_EMAIL_ID"
-    
     var body: some View {
         VStack {
-            Image("logo")
+            Image("sophosIMG")
                 .resizable()
                 .scaledToFit()
-                .frame(width:150,height: 150)
+                .frame(width:200,height: 200)
             
             VStack {
                 // input email
@@ -41,7 +38,8 @@ struct Login: View {
                     guard !generalModel.email.isEmpty, !generalModel.password.isEmpty else {
                         return
                     }
-                    loginModel.signIn(email: generalModel.email, password: generalModel.password)
+                    loginModel.verifyUser()
+                    //loginModel.signIn(email: generalModel.email, password: generalModel.password)
                 }, label: {
                     
                     Text("Iniciar Sesión")
@@ -53,6 +51,9 @@ struct Login: View {
                 })
                     .opacity(generalModel.email != "" && generalModel.password != "" ? 1 : 0.5)
                     .disabled(generalModel.email != "" && generalModel.password != "" ? false : true)
+                    .alert(isPresented: $loginModel.alert, content: {
+                        Alert(title: Text("Error"), message: Text(loginModel.alertMsg), dismissButton: .destructive(Text("Ok")))
+                    } )
                 //button biometric faceID
                 if loginModel.getBioMetricStatus(){
                     Button(action: loginModel.authenticateUser
@@ -74,5 +75,18 @@ struct Login: View {
             .padding()
         }
         .navigationTitle("Login")
+        
+        .alert(isPresented: $loginModel.alert, content: {
+            Alert(title: Text("Mensaje"), message: Text("¿Quieres guardar  usuario y contraseña?"), primaryButton: .default(Text("Aceptar"), action: {
+                loginModel.stored_User = generalModel.email
+                loginModel.stored_Password = generalModel.password
+            }), secondaryButton:  .cancel({
+                //redirection go to home
+                withAnimation{
+                    loginModel.logged = true
+                    self.generalModel.signedIn = true
+                }
+            }))
+        })
     }
 }

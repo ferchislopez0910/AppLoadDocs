@@ -3,7 +3,7 @@
 //  AppUploadDocs
 //
 //  Created by Valeria Castaño on 21/12/21.
-//
+//  objet generalViewModel que tien un body que ¿? 
 
 import SwiftUI
 
@@ -46,7 +46,7 @@ struct ContentView_Previews: PreviewProvider{
 
 
 
-struct ContentView_Previews: PreviewProvider {
+struct contentView_Previews: PreviewProvider {
 
     static var previews: some View {
 

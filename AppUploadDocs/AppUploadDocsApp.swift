@@ -1,7 +1,7 @@
 //
 //  AppUploadDocsApp.swift
 //  AppUploadDocs
-//
+//  This is main - this create a variable
 //  Created by Maria Fernanda Lopez on 21/12/21.
 //
 
@@ -22,6 +22,7 @@ struct AppUploadDocsApp: App {
     }
 }
 
+// initialization firebase
 class AppDelegate: NSObject,  UIApplicationDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -31,5 +32,5 @@ class AppDelegate: NSObject,  UIApplicationDelegate{
     return true
     }
 
-    
+
 }

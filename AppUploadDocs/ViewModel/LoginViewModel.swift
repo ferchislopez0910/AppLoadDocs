@@ -8,12 +8,19 @@
 import SwiftUI
 import LocalAuthentication
 
+
 class LoginViewModel : ObservableObject{
     @StateObject var GeneralModel = GeneralViewModel()
     // for message - alerts..
     @Published var alert = false
     @Published var alertMsg = ""
-    @AppStorage("storage_User") var storage_User = "STORED_EMAIL_ID"
+    
+    @AppStorage("stored_User") var stored_User = ""
+    @AppStorage("stored_Password") var stored_Password = ""
+    @AppStorage("status") var logged = false
+    
+    @Published var store_Info = false
+    
     func signIn(email: String, password: String) {
         GeneralModel.auth.signIn(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else {
@@ -34,7 +41,7 @@ class LoginViewModel : ObservableObject{
     func getBioMetricStatus()-> Bool{
 
         let scanner = LAContext()
-        if GeneralModel.email == storage_User &&
+        if GeneralModel.email == stored_User &&
             scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
                 return true
         }
@@ -51,6 +58,27 @@ class LoginViewModel : ObservableObject{
             }
             // setting logged status as true
             //withAnimation(.easeOut){logged = true}
+        }
+    }
+    
+    func verifyUser(){
+        GeneralModel.auth.signIn(withEmail: GeneralModel.email, password: GeneralModel.password){
+            (res, err) in
+            if let error = err{
+                self.alertMsg = error.localizedDescription
+                self.alert.toggle()
+                return
+            }
+            // Ok
+            if self.stored_User == "" || self.stored_Password == ""{
+                self.store_Info.toggle()
+                return
+            }
+            // Else go to home
+            withAnimation{
+                self.logged = true
+                self.GeneralModel.signedIn = true
+            }
         }
     }
 }

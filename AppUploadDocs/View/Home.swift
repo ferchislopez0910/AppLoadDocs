@@ -3,13 +3,15 @@
 //  AppUploadDocs
 //
 //  Created by Valeria Castaño on 23/12/21.
-//
+//  home tienen
+// VSTACK ¿?
 
 import SwiftUI
 
 struct Home: View {
+    @StateObject var loginModel = LoginViewModel()
     var body: some View {
-        @StateObject var loginModel = LoginViewModel()
+        
         
         VStack{
             Text("Estas logueado")

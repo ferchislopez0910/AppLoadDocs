@@ -23,6 +23,7 @@
 		6F5B34952774342400E05FBB /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B34942774342400E05FBB /* GeneralViewModel.swift */; };
 		6F5B34972774393B00E05FBB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B34962774393B00E05FBB /* LoginViewModel.swift */; };
 		6F5B349927743D4900E05FBB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B349827743D4900E05FBB /* Home.swift */; };
+		6FB01D402779444D00D9B50A /* sophosIMG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FB01D3F2779444D00D9B50A /* sophosIMG.png */; };
 		8A69ABCF4C4939E9EE010074 /* Pods_AppUploadDocs_AppUploadDocsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F21B9F3B9400E96F441277 /* Pods_AppUploadDocs_AppUploadDocsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		6F5B34942774342400E05FBB /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
 		6F5B34962774393B00E05FBB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6F5B349827743D4900E05FBB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		6FB01D3F2779444D00D9B50A /* sophosIMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sophosIMG.png; sourceTree = "<group>"; };
 		76E69888F057D5FFD7002C5A /* Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; path = "Target Support Files/Pods-AppUploadDocs-AppUploadDocsUITests/Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B9E53C90685F04909BE64B0 /* Pods-AppUploadDocsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocsTests.debug.xcconfig"; path = "Target Support Files/Pods-AppUploadDocsTests/Pods-AppUploadDocsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF3E03DF3A82BB144833BDD1 /* Pods_AppUploadDocsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppUploadDocsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,7 @@
 		6F0064582772A0B4004E57EA = {
 			isa = PBXGroup;
 			children = (
+				6FB01D3F2779444D00D9B50A /* sophosIMG.png */,
 				6F0064632772A0B4004E57EA /* AppUploadDocs */,
 				6F0064742772A0BA004E57EA /* AppUploadDocsTests */,
 				6F00647E2772A0BA004E57EA /* AppUploadDocsUITests */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F00646C2772A0B9004E57EA /* Preview Assets.xcassets in Resources */,
+				6FB01D402779444D00D9B50A /* sophosIMG.png in Resources */,
 				6F4A237F27740A4F002DE793 /* GoogleService-Info.plist in Resources */,
 				6F0064692772A0B9004E57EA /* Assets.xcassets in Resources */,
 			);
