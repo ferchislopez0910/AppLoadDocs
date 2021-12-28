@@ -20,13 +20,13 @@ struct CreateAccount: View {
                         .scaledToFit()
                         .frame(width: 150, height: 150)
                     VStack{
-                        TextField("Put your email", text: $email)
+                        TextField("Ingresa tu correo", text: $email)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                             .padding()
                             .background(Color(.secondarySystemBackground))
                             
-                        SecureField("Put your password", text: $pass)
+                        SecureField("Ingresa tu contraseña", text: $pass)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                             .padding()
@@ -41,16 +41,19 @@ struct CreateAccount: View {
                             viewModel.signUp(email: email, password: pass)
                             
                             }, label: {
-                                Text("Created Account")
+                                Text("Crear cuenta")
                                     .foregroundColor(Color.white)
                                     .frame(width: 200, height: 50)
-                                    .cornerRadius(8)
-                                    .background(Color.red) //(red: 0.596, green: 0.051, blue: 0.141, opacity: 0.0))
+                                    .background(Color(red: 152/255,
+                                                     green: 13/255,
+                                                      blue:36/255))
+                                    
+                                    .cornerRadius(25)
                             })
                     }
                     .padding()
                     Spacer()
-                }.navigationTitle("Created Account")
+                }.navigationTitle("Crear cuenta")
     }
 }
 

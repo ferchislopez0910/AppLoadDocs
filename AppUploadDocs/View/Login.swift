@@ -14,10 +14,12 @@ struct Login: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     @State private var isTouchIdValid: Bool = false
+    @State private var isEmailValid: Bool = true
     
     // when firts time user logged in via email store this for future biometric login
     @AppStorage("stored_User") var Stored_User = ""
     @AppStorage("stored_Password") var Stored_Password = ""
+    
     
     
     //@Published var store_Info = false
@@ -28,13 +30,32 @@ struct Login: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width:150,height: 150)
-                
+                Text("Ingresa tus datos aquí")
+                    .padding(5)
+                    .foregroundColor(Color(
+                       red: 152/255,
+                       green: 13/255,
+                       blue:36/255))
                 VStack {
-                    TextField("Correo Electrónico", text: $viewModel.email)
+                    TextField("Correo Electrónico", text: $viewModel.email,
+                              onEditingChanged: { (isChanged) in
+                                            if !isChanged {
+                                                if viewModel.textFieldValidatorEmail(viewModel.email) {
+                                                    self.isEmailValid = true
+                                                } else {
+                                                    self.isEmailValid = false
+                                                    viewModel.email = ""
+                                                }
+                                            }
+                              })
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
                         .background(Color(.secondarySystemBackground))
+                    
+                    if !self.isEmailValid {
+                          Text("Correo no valido")
+                    }
                     
                     SecureField("Contraseña", text: $viewModel.password)
                         .disableAutocorrection(true)
@@ -54,17 +75,19 @@ struct Login: View {
                                 .foregroundColor(Color.white)
                                 .frame(width: 200, height: 50)
                                 .background(Color.red)
-                                .cornerRadius(8)
+                                .cornerRadius(25)
                         })
                             .opacity(viewModel.email != "" && viewModel.password != "" ? 1 : 0.5)
                             .disabled(viewModel.email != "" && viewModel.password != "" ? false : true)
-                            .alert(isPresented: $viewModel.alert, content: {
-                                         Alert(title: Text("Error"), message: Text(viewModel.alertMsg), dismissButton: .destructive(Text("OK")))
-                                     })
+
                         Spacer()
                         if viewModel.getBioMetricStatus() {
                             TouchIDButton(isValid: $isTouchIdValid)
                         }
+                    }
+                    Spacer()
+                    if viewModel.alert {
+                        Text(viewModel.alertMsg)
                     }
                     NavigationLink("Crear cuenta", destination: CreateAccount())
                         .padding()
@@ -89,6 +112,7 @@ struct Login: View {
                     }))
                 })
             }
-            .navigationTitle("Login")
+            .navigationTitle("Ingresar")
+            
     }
 }

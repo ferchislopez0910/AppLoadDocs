@@ -13,17 +13,23 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if viewModel.signedIn {
-                VStack{
+                Home()
+               /** VStack{
                     Text("Estas logueado")
                     Button(action: {
                         viewModel.signOut()
                     }, label: {Text("Cerrar sesión")
+                            .padding(20)
                             .frame(width: 200, height: 50)
-                            .background(Color.green)
-                            .foregroundColor(Color.red)
-                            .padding()
+                            .foregroundColor(Color.white)
+                            .background(Color(red: 152/255,
+                                             green: 13/255,
+                                              blue:36/255))
+                            
+                            .cornerRadius(25)
+                            
                     })
-                }
+                }*/
 
             }
             else {
