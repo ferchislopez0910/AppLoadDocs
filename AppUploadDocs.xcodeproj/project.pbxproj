@@ -24,6 +24,10 @@
 		6FB01D46277959F800D9B50A /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D45277959F800D9B50A /* CreateAccount.swift */; };
 		6FB01D4827795A5800D9B50A /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D4727795A5800D9B50A /* AppViewModel.swift */; };
 		6FB01D4C2779611500D9B50A /* TouchIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01D4B2779611500D9B50A /* TouchIDButton.swift */; };
+		6FBD8014277BC4F7007DDE9B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD8013277BC4F7007DDE9B /* Home.storyboard */; };
+		6FBD8016277C69FB007DDE9B /* EnviarDocumentos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD8015277C69FB007DDE9B /* EnviarDocumentos.storyboard */; };
+		6FBD8018277C7007007DDE9B /* VerDocumentos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD8017277C7007007DDE9B /* VerDocumentos.storyboard */; };
+		6FBD801A277C71D9007DDE9B /* Oficinas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD8019277C71D9007DDE9B /* Oficinas.storyboard */; };
 		8A69ABCF4C4939E9EE010074 /* Pods_AppUploadDocs_AppUploadDocsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F21B9F3B9400E96F441277 /* Pods_AppUploadDocs_AppUploadDocsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,10 @@
 		6FB01D45277959F800D9B50A /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\U0010CreateAccount.swift"; sourceTree = "<group>"; };
 		6FB01D4727795A5800D9B50A /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		6FB01D4B2779611500D9B50A /* TouchIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDButton.swift; sourceTree = "<group>"; };
+		6FBD8013277BC4F7007DDE9B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6FBD8015277C69FB007DDE9B /* EnviarDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnviarDocumentos.storyboard; sourceTree = "<group>"; };
+		6FBD8017277C7007007DDE9B /* VerDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerDocumentos.storyboard; sourceTree = "<group>"; };
+		6FBD8019277C71D9007DDE9B /* Oficinas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Oficinas.storyboard; sourceTree = "<group>"; };
 		76E69888F057D5FFD7002C5A /* Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; path = "Target Support Files/Pods-AppUploadDocs-AppUploadDocsUITests/Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B9E53C90685F04909BE64B0 /* Pods-AppUploadDocsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocsTests.debug.xcconfig"; path = "Target Support Files/Pods-AppUploadDocsTests/Pods-AppUploadDocsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF3E03DF3A82BB144833BDD1 /* Pods_AppUploadDocsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppUploadDocsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +197,7 @@
 		6FB01D4927795D8300D9B50A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6FBD8012277BBF97007DDE9B /* StoryBoards */,
 				6FB01D45277959F800D9B50A /* CreateAccount.swift */,
 				6FB01D432779598C00D9B50A /* Login.swift */,
 				6FB01D4B2779611500D9B50A /* TouchIDButton.swift */,
@@ -211,6 +220,17 @@
 			children = (
 			);
 			path = UploadFile;
+			sourceTree = "<group>";
+		};
+		6FBD8012277BBF97007DDE9B /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD8013277BC4F7007DDE9B /* Home.storyboard */,
+				6FBD8015277C69FB007DDE9B /* EnviarDocumentos.storyboard */,
+				6FBD8017277C7007007DDE9B /* VerDocumentos.storyboard */,
+				6FBD8019277C71D9007DDE9B /* Oficinas.storyboard */,
+			);
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		8D03CACFBB9DD3FAA92F97D4 /* Frameworks */ = {
@@ -333,8 +353,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F00646C2772A0B9004E57EA /* Preview Assets.xcassets in Resources */,
+				6FBD8016277C69FB007DDE9B /* EnviarDocumentos.storyboard in Resources */,
 				6F4A237F27740A4F002DE793 /* GoogleService-Info.plist in Resources */,
+				6FBD8018277C7007007DDE9B /* VerDocumentos.storyboard in Resources */,
 				6F0064692772A0B9004E57EA /* Assets.xcassets in Resources */,
+				6FBD8014277BC4F7007DDE9B /* Home.storyboard in Resources */,
+				6FBD801A277C71D9007DDE9B /* Oficinas.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

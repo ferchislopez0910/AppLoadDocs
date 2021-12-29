@@ -68,7 +68,7 @@ struct MainView: View {
                 Image("home1")
                     .resizable()
                     .scaledToFit()
-                    .frame(width:150,height: 150)
+                    .frame(width:100,height: 50)
                     Text("Estas son las opciones que tenemos para ti:")
                         .padding(5)
                         .foregroundColor(Color(
