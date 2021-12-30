@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="Home" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" sceneMemberID="viewController">
@@ -16,131 +16,187 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bienvenido" translatesAutoresizingMaskIntoConstraints="NO" id="caq-k8-Wm3">
-                                <rect key="frame" x="0.0" y="58" width="192" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="web_logo_Sophos_Blanco" translatesAutoresizingMaskIntoConstraints="NO" id="zOQ-MI-6hq">
-                                <rect key="frame" x="0.0" y="46" width="414" height="199"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="web_logo_Sophos_Blanco" translatesAutoresizingMaskIntoConstraints="NO" id="zOQ-MI-6hq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
                                 <color key="backgroundColor" red="0.3168752789" green="0.61569005249999997" blue="0.89949756859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bienvenido" translatesAutoresizingMaskIntoConstraints="NO" id="4PT-u9-fVu">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" text="Estas son las opciones que tenemos para ti:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LO2-ub-wBo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" text="Estas son las opciones que tenemos para ti:" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LO2-ub-wBo">
                                 <rect key="frame" x="20" y="192" width="175" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3168752789" green="0.61569005249999997" blue="0.89949756859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9ec-eI-vX1">
-                                <rect key="frame" x="20" y="382.33333333333326" width="54" height="34"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K99-bf-Nfs">
+                                <rect key="frame" x="8" y="368" width="396" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enviar Documentos" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="DYp-20-f1z">
-                                <rect key="frame" x="73" y="382.33333333333326" width="189" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                <color key="textColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-ic-ftB">
-                                <rect key="frame" x="223" y="416.33333333333326" width="135" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Ingresar" cornerStyle="capsule"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Elj-cK-MkO">
-                                <rect key="frame" x="326" y="421.33333333333326" width="32" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JQe-Zd-l2r">
-                                <rect key="frame" x="20" y="482.33333333333326" width="54" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enviar Documentos" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yil-am-Ex4">
-                                <rect key="frame" x="73" y="482.33333333333326" width="189" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                <color key="textColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-z2-Fbp">
-                                <rect key="frame" x="223" y="516.33333333333326" width="135" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Ingresar" cornerStyle="capsule"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vvK-yt-912">
-                                <rect key="frame" x="326" y="521.33333333333326" width="32" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-W7-oTL">
-                                <rect key="frame" x="140" y="581" width="135" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="CERRAR" cornerStyle="capsule">
-                                    <color key="baseForegroundColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="baseBackgroundColor" red="0.98823529409999999" green="0.32124302119999998" blue="0.30859678000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                            </button>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enviar Documentos" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="DYp-20-f1z">
+                                        <rect key="frame" x="43" y="21" width="156" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <color key="tintColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Elj-cK-MkO">
+                                        <rect key="frame" x="343" y="61" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-ic-ftB">
+                                        <rect key="frame" x="239" y="58" width="135" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Ingresar" cornerStyle="capsule"/>
+                                        <connections>
+                                            <segue destination="l3o-Z9-ZE9" kind="presentation" id="XoI-2t-oTf"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9ec-eI-vX1">
+                                        <rect key="frame" x="-7" y="20.333333333333371" width="54" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </view>
                             <view contentMode="redraw" semanticContentAttribute="playback" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zDo-H0-efz">
                                 <rect key="frame" x="8" y="253" width="396" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fVk-Tz-9pj">
-                                        <rect key="frame" x="-10" y="17.333333333333371" width="54" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enviar Documentos" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="XY9-8t-4mL">
-                                        <rect key="frame" x="38" y="17" width="189" height="34"/>
+                                        <rect key="frame" x="38" y="17" width="161" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                        <color key="textColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <color key="tintColor" red="0.030885914340615273" green="0.35546690225601196" blue="0.97032338380813599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.23617109659999999" green="0.51604568959999997" blue="0.89307010170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8c-qN-YGn">
                                         <rect key="frame" x="231" y="59" width="135" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.030885914340615273" green="0.35546690225601196" blue="0.97032338380813599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Ingresar" cornerStyle="capsule"/>
+                                        <connections>
+                                            <segue destination="AaM-wM-GtG" kind="presentation" id="LCd-Ka-wmw"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8MF-KQ-tNd">
                                         <rect key="frame" x="334" y="63" width="32" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.030885914340615273" green="0.35546690225601196" blue="0.97032338380813599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fVk-Tz-9pj">
+                                        <rect key="frame" x="-9" y="16.333333333333371" width="54" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.030885914340615273" green="0.35546690225601196" blue="0.97032338380813599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5K-Ii-mg7">
+                                <rect key="frame" x="8" y="494" width="396" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JQe-Zd-l2r">
+                                        <rect key="frame" x="0.0" y="9" width="54" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enviar Documentos" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yil-am-Ex4">
+                                        <rect key="frame" x="45" y="8" width="155" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="15w-cM-SEK">
+                                        <rect key="frame" x="344" y="66" width="32" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-z2-Fbp">
+                                        <rect key="frame" x="241" y="61" width="135" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0028558077760000001" green="0.049686305219999997" blue="0.34048628809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Ingresar" cornerStyle="capsule"/>
+                                        <connections>
+                                            <segue destination="CPM-Mf-53G" kind="presentation" id="55c-4e-ANV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bienvenido" translatesAutoresizingMaskIntoConstraints="NO" id="4PT-u9-fVu">
+                                <rect key="frame" x="0.0" y="-9" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-WE-Vl6">
+                                <rect key="frame" x="0.0" y="608" width="414" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-W7-oTL">
+                                        <rect key="frame" x="131" y="47" width="134" height="34"/>
+                                        <color key="tintColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="CERRAR" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25381559129999998" green="0.50311493870000001" blue="0.74045151470000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="VoX-W7-oTL" firstAttribute="centerX" secondItem="kdn-WE-Vl6" secondAttribute="centerX" id="Rsl-lh-7MT"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.3168752789" green="0.61569005249999997" blue="0.89949756859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zOQ-MI-6hq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="STQ-pL-2DL"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="hAs-P0-Yl4">
-                        <barButtonItem key="backBarButtonItem" title="Regresar" id="CId-go-xN7"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="hAs-P0-Yl4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-89.855072463768124" y="-109.23913043478262"/>
+        </scene>
+        <!--EnviarDocumentos-->
+        <scene sceneID="dhe-yi-aAa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EnviarDocumentos" id="AaM-wM-GtG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cnf-V9-HB5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="519" y="-164"/>
+        </scene>
+        <!--VerDocumentos-->
+        <scene sceneID="c1o-rx-MTI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VerDocumentos" id="l3o-Z9-ZE9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZ8-86-RFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="520" y="-23"/>
+        </scene>
+        <!--Oficinas-->
+        <scene sceneID="1b0-Ug-mr3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Oficinas" id="CPM-Mf-53G" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UGh-Kw-2Ud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="472" y="41"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BAR-Ow-zYK">
@@ -171,12 +227,20 @@
         <image name="Bienvenido" width="250" height="250"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="doc.text.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="web_logo_Sophos_Blanco" width="240.5" height="51"/>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
