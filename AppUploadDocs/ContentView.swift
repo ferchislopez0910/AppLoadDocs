@@ -13,24 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if viewModel.signedIn {
-                Home()
-               /** VStack{
-                    Text("Estas logueado")
-                    Button(action: {
-                        viewModel.signOut()
-                    }, label: {Text("Cerrar sesión")
-                            .padding(20)
-                            .frame(width: 200, height: 50)
-                            .foregroundColor(Color.white)
-                            .background(Color(red: 152/255,
-                                             green: 13/255,
-                                              blue:36/255))
-                            
-                            .cornerRadius(25)
-                            
-                    })
-                }*/
-
+                HomeController()
             }
             else {
                 Login()
@@ -43,12 +26,23 @@ struct ContentView: View {
 }
 
 
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+
+struct HomeController : UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<HomeController>) -> UIViewController {
+        
+        let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(identifier: "Home")
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<HomeController>) {
+    }
+    
 }

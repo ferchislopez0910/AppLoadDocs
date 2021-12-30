@@ -8,10 +8,8 @@
 import SwiftUI
 import Foundation
 import LocalAuthentication
-import FirebaseAuth
 
 class AppViewModel: ObservableObject {
-    let auth = Auth.auth()
     let URL_BASE = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com"
     @Published var client = ClientSophos(id: "", nombre: "", apellido: "", acceso: false, admin: false)
     @Published var signedIn = false
@@ -25,11 +23,17 @@ class AppViewModel: ObservableObject {
     @Published var store_Info = false
     
     var isSignedIn: Bool {
-        return auth.currentUser != nil
+        return client.nombre != ""
+    }
+    
+    init(){
+        if Stored_User != ""{
+            email = Stored_User
+        }
     }
     
     func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) { [weak self] result, error in
+        /*auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else {
                 return
             }
@@ -38,12 +42,11 @@ class AppViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.signedIn = false
             }
-        }
+        }*/
     }
     
     func signOut() {
-        try? auth.signOut()
-        
+        //try? auth.signOut()        
         self.signedIn = false
     }
     
