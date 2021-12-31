@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  AppUploadDocs
 //
-//  Created by Valeria Castaño on 21/12/21.
+//  Created by Maria Fernanda Lopez on 21/12/21.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if viewModel.signedIn {
-                HomeController()
+                ViewControllerRepresentation()
             }
             else {
                 Login()
@@ -32,17 +32,23 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+// ref: https://stackoverflow.com/questions/66901476/how-to-set-environmentobject-in-an-existing-storyboard-based-project
+struct ViewControllerRepresentation: UIViewControllerRepresentable {
+    @EnvironmentObject var bllViewModel: AppViewModel
 
-struct HomeController : UIViewControllerRepresentable {
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<HomeController>) -> UIViewController {
-        
+    // Use this function to pass the @EnvironmentObject to the view controller
+    // so that you can change its properties from inside the view controller scope.
+    func makeUIViewController(context: Context) -> HomeViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(identifier: "Home")
-        return controller
+        let homeController = storyboard.instantiateViewController(identifier: "Home") { coder in
+            HomeViewController(bllViewModel: bllViewModel, coder: coder)
+        }
+        return homeController
     }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<HomeController>) {
+
+    // Use this function to update the view controller when the @EnvironmentObject changes.
+    // In this case I modify the label color based on the themeManager.
+    func updateUIViewController(_ uiViewController: HomeViewController, context: Context) {
+        //uiViewController.signedIn = true
     }
-    
 }

@@ -1298,6 +1298,22 @@
 		6E25A0612732C8AD1ECF37B8E1F05C45 /* FIRSendVerificationCodeResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRSendVerificationCodeResponse.h; path = FirebaseAuth/Sources/Backend/RPC/FIRSendVerificationCodeResponse.h; sourceTree = "<group>"; };
 		6E56190FD5222BA0652DC4F3C9B14DD0 /* FIRCoreDiagnostics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRCoreDiagnostics.h; path = Firebase/CoreDiagnostics/FIRCDLibrary/Public/FIRCoreDiagnostics.h; sourceTree = "<group>"; };
 		6E8ABEF93336001DCE956BE0A65CF313 /* FIRUserMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRUserMetadata.h; path = FirebaseAuth/Sources/Public/FirebaseAuth/FIRUserMetadata.h; sourceTree = "<group>"; };
+		6F39B6BB277F748F004C32AF /* EnviarDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnviarDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6BC277F748F004C32AF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6F39B6BD277F748F004C32AF /* Oficinas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Oficinas.storyboard; sourceTree = "<group>"; };
+		6F39B6BE277F748F004C32AF /* VerDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6BF277F7490004C32AF /* Oficinas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Oficinas.storyboard; sourceTree = "<group>"; };
+		6F39B6C0277F7490004C32AF /* EnviarDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnviarDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6C1277F7490004C32AF /* VerDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6C2277F7490004C32AF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6F39B6C4277F74A2004C32AF /* EnviarDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnviarDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6C5277F74A2004C32AF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6F39B6C6277F74A2004C32AF /* Oficinas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Oficinas.storyboard; sourceTree = "<group>"; };
+		6F39B6C7277F74A2004C32AF /* VerDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6C8277F74A2004C32AF /* EnviarDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnviarDocumentos.storyboard; sourceTree = "<group>"; };
+		6F39B6C9277F74A2004C32AF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6F39B6CA277F74A2004C32AF /* Oficinas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Oficinas.storyboard; sourceTree = "<group>"; };
+		6F39B6CB277F74A2004C32AF /* VerDocumentos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerDocumentos.storyboard; sourceTree = "<group>"; };
 		6FBA03647CE936BA8FCF691C8DC706A8 /* FIRDiagnosticsData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRDiagnosticsData.m; path = FirebaseCore/Sources/FIRDiagnosticsData.m; sourceTree = "<group>"; };
 		6FCEFAA2B4895A7B55BD3E2350E8A679 /* FIRActionCodeSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRActionCodeSettings.m; path = FirebaseAuth/Sources/Auth/FIRActionCodeSettings.m; sourceTree = "<group>"; };
 		706C621A9DEDA2080B3CC42577D78119 /* FirebaseCoreDiagnostics-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FirebaseCoreDiagnostics-umbrella.h"; sourceTree = "<group>"; };
@@ -2152,6 +2168,38 @@
 			path = "../Target Support Files/PromisesObjC";
 			sourceTree = "<group>";
 		};
+		6F39B6BA277F748F004C32AF /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				6F39B6BB277F748F004C32AF /* EnviarDocumentos.storyboard */,
+				6F39B6C1277F7490004C32AF /* VerDocumentos.storyboard */,
+				6F39B6BF277F7490004C32AF /* Oficinas.storyboard */,
+				6F39B6C2277F7490004C32AF /* Home.storyboard */,
+				6F39B6BC277F748F004C32AF /* Home.storyboard */,
+				6F39B6BD277F748F004C32AF /* Oficinas.storyboard */,
+				6F39B6C0277F7490004C32AF /* EnviarDocumentos.storyboard */,
+				6F39B6BE277F748F004C32AF /* VerDocumentos.storyboard */,
+			);
+			name = StoryBoards;
+			path = ../AppUploadDocs/View/StoryBoards;
+			sourceTree = "<group>";
+		};
+		6F39B6C3277F74A2004C32AF /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				6F39B6C4277F74A2004C32AF /* EnviarDocumentos.storyboard */,
+				6F39B6CB277F74A2004C32AF /* VerDocumentos.storyboard */,
+				6F39B6CA277F74A2004C32AF /* Oficinas.storyboard */,
+				6F39B6C5277F74A2004C32AF /* Home.storyboard */,
+				6F39B6C6277F74A2004C32AF /* Oficinas.storyboard */,
+				6F39B6C9277F74A2004C32AF /* Home.storyboard */,
+				6F39B6C8277F74A2004C32AF /* EnviarDocumentos.storyboard */,
+				6F39B6C7277F74A2004C32AF /* VerDocumentos.storyboard */,
+			);
+			name = StoryBoards;
+			path = ../AppUploadDocs/View/StoryBoards;
+			sourceTree = "<group>";
+		};
 		73F19922A13599BB7B95A83A0681B683 /* decode */ = {
 			isa = PBXGroup;
 			children = (
@@ -2451,6 +2499,8 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				6F39B6BA277F748F004C32AF /* StoryBoards */,
+				6F39B6C3277F74A2004C32AF /* StoryBoards */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D68CA58901FBF589D75F5E40F1EAF5BA /* Frameworks */,
 				48993A7E91F362BBBC6756B66812E255 /* Pods */,
