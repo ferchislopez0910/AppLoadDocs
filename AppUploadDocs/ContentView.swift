@@ -39,8 +39,8 @@ struct ViewControllerRepresentation: UIViewControllerRepresentable {
     // Use this function to pass the @EnvironmentObject to the view controller
     // so that you can change its properties from inside the view controller scope.
     func makeUIViewController(context: Context) -> HomeViewController {
-        let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
-        let homeController = storyboard.instantiateViewController(identifier: "Home") { coder in
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let homeController = storyboard.instantiateViewController(identifier: "Main") { coder in
             HomeViewController(bllViewModel: bllViewModel, coder: coder)
         }
         return homeController
