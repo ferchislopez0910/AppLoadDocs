@@ -16,7 +16,6 @@ target 'AppUploadDocs' do
     # Pods for testing
   end
 
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
+  pod 'DropDown'
 
 end
