@@ -1,9 +1,9 @@
-//
-//  SendDocsViewController.swift
-//  AppUploadDocs
-//
-//  Created by Valeria Castaño on 3/01/22.
-//
+/*
+  SendDocsViewController.swift
+  AppUploadDocs
+
+  Created by Maria Fernanda Lopez on 3/01/22.
+*/
 
 import UIKit
 import SwiftUI
@@ -11,7 +11,7 @@ import DropDown
 
 class SendDocsViewController: UIViewController {
     
-    //variable
+    // variables
     @AppStorage("stored_User") var Stored_Email = ""
 
     @IBOutlet weak var numberIDTextField: UITextField!
@@ -27,7 +27,7 @@ class SendDocsViewController: UIViewController {
     @IBOutlet weak var messageValidate: UILabel!
     
     
-    // tipo de documento
+    // Document ID
     let TEXT_DEFAULT_DOCUMENTID = "Seleccione el tipo de documento"
     @IBOutlet weak var documentID: UITextField!
     @IBOutlet weak var vmdocumentIDDropDown:UIView!
@@ -36,7 +36,7 @@ class SendDocsViewController: UIViewController {
     let dropDowndocumentID = DropDown()
     
     
-    // ciudades
+    // Cities
     let TEXT_DEFAULT_CITY = "Seleccione la ciudad"
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var vmCitiesDropDown:UIView!
@@ -44,7 +44,7 @@ class SendDocsViewController: UIViewController {
     let cities = ["Medellín", "Bogotá"]
     let dropDownCities = DropDown()
     
-    // tipo de adjunto
+    // Kind attach
     let TEXT_DEFAULT_ADD = "Seleccione el tipo de adjunto"
     @IBOutlet weak var add: UITextField!
     @IBOutlet weak var vmAddDropDown:UIView!
@@ -52,7 +52,7 @@ class SendDocsViewController: UIViewController {
     let addType = ["Certificado de Cuenta", "Cedula", "Factura", "Incapacidad"]
     let dropDownAdd = DropDown()
     
-    //Attach document
+    // Attach document
     let TEXT_DEFAULT_ATTACHDOCUMENT = "📩 Tipo de adjunto"
     @IBOutlet weak var attach: UITextField!
     @IBOutlet weak var vmAttachDropDown:UIView!
@@ -62,8 +62,7 @@ class SendDocsViewController: UIViewController {
     var imageBase64: String? = ""
     
 
-    //Actions
-    
+    // Actions
     @IBAction func sendBtnAction(_ sender: UIButton) {
         
         /*
@@ -193,7 +192,7 @@ class SendDocsViewController: UIViewController {
             
         }
     }
-    // MARK: Function for get document from library
+    // MARK: - Function for get document from library
     fileprivate func getDocLibrary() {
         
         let vc = UIImagePickerController()
@@ -203,7 +202,7 @@ class SendDocsViewController: UIViewController {
         present(vc, animated: true)
         
     }
-    // MARK: Function for get document from library
+    // MARK: - Function for get document from library
     fileprivate func getDocCamera() {
         if (UIImagePickerController.isSourceTypeAvailable(.camera))  {
                 
@@ -244,6 +243,7 @@ class SendDocsViewController: UIViewController {
         
     }
     
+    // MARK: - function that validate each fields
     @IBAction func validateFieldDidChange(_ sender: UITextField) {
         sendDocBtn.isEnabled = false
         messageValidate.isHidden = true
@@ -279,9 +279,7 @@ class SendDocsViewController: UIViewController {
             messageValidate.isHidden = false
             return
         }
-        
-    
-        
+
         if city.text == "" || city.text == TEXT_DEFAULT_CITY {
             messageValidate.text = "La ciudad es obligatoria"
             messageValidate.isHidden = false
@@ -328,7 +326,7 @@ class SendDocsViewController: UIViewController {
 
 
 extension SendDocsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // MARK: Cuando se va cargar cargar una image
+    // MARK: - when to upload an image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         print("FROM ::: imagePickerController")
@@ -342,7 +340,6 @@ extension SendDocsViewController: UIImagePickerControllerDelegate, UINavigationC
             messageValidate.isHidden = false
             return
         }
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

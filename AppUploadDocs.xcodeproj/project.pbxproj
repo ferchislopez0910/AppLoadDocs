@@ -16,7 +16,6 @@
 		6F0064802772A0BA004E57EA /* AppUploadDocsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00647F2772A0BA004E57EA /* AppUploadDocsUITests.swift */; };
 		6F0064822772A0BA004E57EA /* AppUploadDocsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0064812772A0BA004E57EA /* AppUploadDocsUITestsLaunchTests.swift */; };
 		6F12806B277A7B1000907A67 /* ClientSophos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F12806A277A7B1000907A67 /* ClientSophos.swift */; };
-		6F4A237F27740A4F002DE793 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A237E27740A4F002DE793 /* GoogleService-Info.plist */; };
 		6F6351BD2783929700CF5F3E /* SendDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6351BC2783929700CF5F3E /* SendDocsViewController.swift */; };
 		6F6EF983277F900200EBA448 /* SendDocs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F6EF982277F900100EBA448 /* SendDocs.storyboard */; };
 		6F6EF985277FA9AC00EBA448 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6EF984277FA9AC00EBA448 /* HomeViewController.swift */; };
@@ -62,7 +61,6 @@
 		6F00647F2772A0BA004E57EA /* AppUploadDocsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUploadDocsUITests.swift; sourceTree = "<group>"; };
 		6F0064812772A0BA004E57EA /* AppUploadDocsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUploadDocsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6F12806A277A7B1000907A67 /* ClientSophos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSophos.swift; sourceTree = "<group>"; };
-		6F4A237E27740A4F002DE793 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F6351BC2783929700CF5F3E /* SendDocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDocsViewController.swift; sourceTree = "<group>"; };
 		6F6EF982277F900100EBA448 /* SendDocs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendDocs.storyboard; sourceTree = "<group>"; };
 		6F6EF984277FA9AC00EBA448 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +73,7 @@
 		6FB01D45277959F800D9B50A /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\U0010CreateAccount.swift"; sourceTree = "<group>"; };
 		6FB01D4727795A5800D9B50A /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		6FB01D4B2779611500D9B50A /* TouchIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDButton.swift; sourceTree = "<group>"; };
+		6FF5F6BA278532BB00445A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E69888F057D5FFD7002C5A /* Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; path = "Target Support Files/Pods-AppUploadDocs-AppUploadDocsUITests/Pods-AppUploadDocs-AppUploadDocsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B9E53C90685F04909BE64B0 /* Pods-AppUploadDocsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppUploadDocsTests.debug.xcconfig"; path = "Target Support Files/Pods-AppUploadDocsTests/Pods-AppUploadDocsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF3E03DF3A82BB144833BDD1 /* Pods_AppUploadDocsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppUploadDocsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,11 +153,11 @@
 				6F128069277A7AF400907A67 /* Model */,
 				6FB01D4A27795D9C00D9B50A /* ViewModel */,
 				6FB01D4927795D8300D9B50A /* View */,
-				6F4A237E27740A4F002DE793 /* GoogleService-Info.plist */,
 				6F0064642772A0B4004E57EA /* AppUploadDocsApp.swift */,
 				6F0064662772A0B4004E57EA /* ContentView.swift */,
 				6F0064682772A0B9004E57EA /* Assets.xcassets */,
 				6F00646A2772A0B9004E57EA /* Preview Content */,
+				6FF5F6BA278532BB00445A25 /* Info.plist */,
 			);
 			path = AppUploadDocs;
 			sourceTree = "<group>";
@@ -359,7 +358,6 @@
 				6F6EF98B277FC18B00EBA448 /* Main.storyboard in Resources */,
 				6F6EF98F277FC86B00EBA448 /* Offices.storyboard in Resources */,
 				6F6EF983277F900200EBA448 /* SendDocs.storyboard in Resources */,
-				6F4A237F27740A4F002DE793 /* GoogleService-Info.plist in Resources */,
 				6F0064692772A0B9004E57EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,7 +659,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppUploadDocs/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/cesarcastano/Documents/PROYECTOS/SOPHOS/RETO_IOS/repo/AppLoadDocs/AppUploadDocs/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app will use camera.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -690,7 +691,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppUploadDocs/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/cesarcastano/Documents/PROYECTOS/SOPHOS/RETO_IOS/repo/AppLoadDocs/AppUploadDocs/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app will use camera.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
