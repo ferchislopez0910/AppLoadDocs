@@ -66,14 +66,47 @@ class SendDocsViewController: UIViewController {
     @IBAction func sendBtnAction(_ sender: UIButton) {
         
         /*
-        print(documentID.text)
-        print(numberIDTextField.text)
-        print(nameTextField.text)
-        print(lastNameTextField.text)
-        print(emailTextField.text)
-        print(city.text)
-        print(add.text)
+        Endpoint: https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos
+        Servicio a implementar un post
+        TODO: Aca se debe llamar la accion que consume el servicio
         */
+        sendDocumentAPI()
+
+    }
+    
+    private func sendDocumentAPI(){
+        let endpointRS_Documents = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos"
+        
+        guard let endpointRSDoc = URL(string: endpointRS_Documents) else{
+            print("URL no valida")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: endpointRSDoc) { (data: Data?, _, error: Error?) in
+
+            if error != nil {
+                print("Hubo un error")
+                
+                return
+            }
+            // como el Data? es opcional, lo que se hace es setear el data para que la funcion pueda llamarlo
+            guard let dataFromServiceRS_Doc = data,
+                  let dictionary = try? JSONSerialization.jsonObject(with: dataFromServiceRS_Doc, options: []) as? [String: Any] else{
+                      
+                    return
+                }
+            /*
+             Todos los llamados a la UI se hace el en main thread
+             */
+            DispatchQueue.main.async {
+                //  Se llama al textlabel que contiene la informacion que se va a subir en este cas: lblAttach
+                self.lblAttach.text = dictionary["Adjunto"] as? String
+            }
+            
+            
+        }.resume() //Con este .resume() se ejecuta el request
+        print("entro a la API")
+
 
     }
     
@@ -95,6 +128,7 @@ class SendDocsViewController: UIViewController {
         
         // config list attach
         setupViewAttach()
+        
         
     }
   
@@ -237,7 +271,7 @@ class SendDocsViewController: UIViewController {
         attach.isHidden = true
         
         // Update Save Button
-        sendDocBtn.isEnabled = false
+        sendDocBtn.isEnabled = true
         
         // set textField email
         emailTextField.text = Stored_Email
