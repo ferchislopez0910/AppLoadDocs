@@ -20,6 +20,10 @@ class AppViewModel: ObservableObject {
     @Published var alertMsg = ""
     @AppStorage("stored_User") var Stored_User = ""
     @AppStorage("stored_Password") var Stored_Password = ""
+    
+    @AppStorage("stored_Name") var Stored_Name = ""
+    @AppStorage("stored_LastName") var Stored_LastName = ""
+
     @Published var store_Info = false
     
     var isSignedIn: Bool {
@@ -102,6 +106,9 @@ class AppViewModel: ObservableObject {
                     self.client = userResponse
                     self.signedIn = true
                     print(userResponse)
+                    self.Stored_Name = self.client.nombre
+                    self.Stored_LastName = self.client.apellido
+                    
                 }
                 
             }

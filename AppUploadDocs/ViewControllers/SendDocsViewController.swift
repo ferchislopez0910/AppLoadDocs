@@ -79,7 +79,8 @@ class SendDocsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+
         // Setup View
         setupView()
         
@@ -95,10 +96,10 @@ class SendDocsViewController: UIViewController {
         // config list attach
         setupViewAttach()
         
-        
-    
     }
-    
+  
+  
+
     // MARK: - Show document ID
     
     @IBAction func showDocumentIDOption(_ sender: UIButton) {
@@ -308,6 +309,7 @@ class SendDocsViewController: UIViewController {
         }
         
         sendDocBtn.isEnabled = true
+        messageValidate.isHidden = true
     }
     
     func textFieldValidatorEmail(_ string: String) -> Bool {
@@ -318,11 +320,12 @@ class SendDocsViewController: UIViewController {
     }
     
     func convertImageToBase64(image: UIImage) -> String? {
-     let imageData = image.jpegData(compressionQuality: 1)
-     return imageData?.base64EncodedString(options:
-     Data.Base64EncodingOptions.lineLength64Characters)
+        let imageData = image.jpegData(compressionQuality: 1)
+        return imageData?.base64EncodedString(options:
+                    Data.Base64EncodingOptions.lineLength64Characters)
     }
 }
+
 
 
 extension SendDocsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

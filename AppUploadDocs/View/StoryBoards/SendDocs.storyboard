@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6h-oq-B0L">
-                                <rect key="frame" x="42" y="88" width="202" height="44"/>
+                                <rect key="frame" x="35" y="66" width="241" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Envio de Documentacion">
                                     <color key="titleColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>

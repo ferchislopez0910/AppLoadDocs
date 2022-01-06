@@ -16,6 +16,8 @@
 		6F0064802772A0BA004E57EA /* AppUploadDocsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00647F2772A0BA004E57EA /* AppUploadDocsUITests.swift */; };
 		6F0064822772A0BA004E57EA /* AppUploadDocsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0064812772A0BA004E57EA /* AppUploadDocsUITestsLaunchTests.swift */; };
 		6F12806B277A7B1000907A67 /* ClientSophos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F12806A277A7B1000907A67 /* ClientSophos.swift */; };
+		6F28F80027865BB4007F4091 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F28F7FF27865BB4007F4091 /* menu.png */; };
+		6F28F80827867935007F4091 /* ViewDocsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28F80727867935007F4091 /* ViewDocsController.swift */; };
 		6F6351BD2783929700CF5F3E /* SendDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6351BC2783929700CF5F3E /* SendDocsViewController.swift */; };
 		6F6EF983277F900200EBA448 /* SendDocs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F6EF982277F900100EBA448 /* SendDocs.storyboard */; };
 		6F6EF985277FA9AC00EBA448 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6EF984277FA9AC00EBA448 /* HomeViewController.swift */; };
@@ -61,6 +63,8 @@
 		6F00647F2772A0BA004E57EA /* AppUploadDocsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUploadDocsUITests.swift; sourceTree = "<group>"; };
 		6F0064812772A0BA004E57EA /* AppUploadDocsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUploadDocsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6F12806A277A7B1000907A67 /* ClientSophos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSophos.swift; sourceTree = "<group>"; };
+		6F28F7FF27865BB4007F4091 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		6F28F80727867935007F4091 /* ViewDocsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDocsController.swift; sourceTree = "<group>"; };
 		6F6351BC2783929700CF5F3E /* SendDocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDocsViewController.swift; sourceTree = "<group>"; };
 		6F6EF982277F900100EBA448 /* SendDocs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendDocs.storyboard; sourceTree = "<group>"; };
 		6F6EF984277FA9AC00EBA448 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				6F0064642772A0B4004E57EA /* AppUploadDocsApp.swift */,
 				6F0064662772A0B4004E57EA /* ContentView.swift */,
 				6F0064682772A0B9004E57EA /* Assets.xcassets */,
+				6F28F7FF27865BB4007F4091 /* menu.png */,
 				6F00646A2772A0B9004E57EA /* Preview Content */,
 				6FF5F6BA278532BB00445A25 /* Info.plist */,
 			);
@@ -220,6 +225,7 @@
 			children = (
 				6F6EF984277FA9AC00EBA448 /* HomeViewController.swift */,
 				6F6351BC2783929700CF5F3E /* SendDocsViewController.swift */,
+				6F28F80727867935007F4091 /* ViewDocsController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			files = (
 				6F6EF987277FAC3200EBA448 /* ViewDocs.storyboard in Resources */,
 				6F6EF98B277FC18B00EBA448 /* Main.storyboard in Resources */,
+				6F28F80027865BB4007F4091 /* menu.png in Resources */,
 				6F6EF98F277FC86B00EBA448 /* Offices.storyboard in Resources */,
 				6F6EF983277F900200EBA448 /* SendDocs.storyboard in Resources */,
 				6F0064692772A0B9004E57EA /* Assets.xcassets in Resources */,
@@ -489,6 +496,7 @@
 				6FB01D4827795A5800D9B50A /* AppViewModel.swift in Sources */,
 				6F12806B277A7B1000907A67 /* ClientSophos.swift in Sources */,
 				6FB01D46277959F800D9B50A /* CreateAccount.swift in Sources */,
+				6F28F80827867935007F4091 /* ViewDocsController.swift in Sources */,
 				6F6EF989277FBFA700EBA448 /* HomeView.swift in Sources */,
 				6FB01D4C2779611500D9B50A /* TouchIDButton.swift in Sources */,
 				6F9E958D277AA61C00F7B3AF /* MenuView.swift in Sources */,

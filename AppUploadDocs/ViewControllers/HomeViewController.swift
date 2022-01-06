@@ -9,7 +9,11 @@ import SwiftUI
 
 class HomeViewController: UIViewController {
     
+    @AppStorage("stored_Name") var Stored_Name = ""
+    
     let bllViewModel: AppViewModel
+    
+    @IBOutlet weak var nameUserLabel: UILabel!
     
     @EnvironmentObject var viewModel: AppViewModel
 
@@ -24,9 +28,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.nameUserLabel.text = Stored_Name
+        print(Stored_Name)
         // Do any additional setup after loading the view.
-        
     }
+    
+    
+    
+    
     
     // MARK: - Navigation
     

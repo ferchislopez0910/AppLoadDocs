@@ -24,7 +24,11 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="p4C-K2-Ljv"/>
+                    <navigationItem key="navigationItem" id="bSs-J6-H5x">
+                        <barButtonItem key="backBarButtonItem" id="V8g-g1-64b">
+                            <color key="tintColor" red="0.56047999858856201" green="0.088323913514614105" blue="0.089988179504871368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
