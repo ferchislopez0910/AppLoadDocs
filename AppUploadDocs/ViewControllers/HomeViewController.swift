@@ -8,7 +8,7 @@ import UIKit
 import SwiftUI
 
 class HomeViewController: UIViewController {
-    
+        
     @AppStorage("stored_Name") var Stored_Name = ""
     
     let bllViewModel: AppViewModel

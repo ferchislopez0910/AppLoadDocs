@@ -17,5 +17,7 @@ target 'AppUploadDocs' do
   end
 
   pod 'DropDown'
+  
+  pod 'Alamofire', '~> 5.5'
 
 end

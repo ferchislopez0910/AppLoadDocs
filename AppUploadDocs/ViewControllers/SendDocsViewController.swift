@@ -8,11 +8,16 @@
 import UIKit
 import SwiftUI
 import DropDown
+import Alamofire
 
-class SendDocsViewController: UIViewController {
-    
-    // variables
+class SendDocsViewController: UIViewController{
+
+    // MARK: - Instancias con otras clases
+    let service = ServiceSophos()
+
+    // MARK: - variables
     @AppStorage("stored_User") var Stored_Email = ""
+    var objCities : ResultCities?
 
     @IBOutlet weak var numberIDTextField: UITextField!
     
@@ -41,7 +46,7 @@ class SendDocsViewController: UIViewController {
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var vmCitiesDropDown:UIView!
     @IBOutlet weak var lblCities:UILabel!
-    let cities = ["Medellín", "Bogotá"]
+    var cities = [""]
     let dropDownCities = DropDown()
     
     // Kind attach
@@ -61,79 +66,57 @@ class SendDocsViewController: UIViewController {
     let dropDownAttach = DropDown()
     var imageBase64: String? = ""
     
-
-    // Actions
-    @IBAction func sendBtnAction(_ sender: UIButton) {
-        
-        /*
-        Endpoint: https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos
-        Servicio a implementar un post
-        TODO: Aca se debe llamar la accion que consume el servicio
-        */
-        sendDocumentAPI()
-
-    }
-    
-    private func sendDocumentAPI(){
-        let endpointRS_Documents = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos"
-        
-        guard let endpointRSDoc = URL(string: endpointRS_Documents) else{
-            print("URL no valida")
-            return
-        }
-        
-        URLSession.shared.dataTask(with: endpointRSDoc) { (data: Data?, _, error: Error?) in
-
-            if error != nil {
-                print("Hubo un error")
-                
-                return
-            }
-            // como el Data? es opcional, lo que se hace es setear el data para que la funcion pueda llamarlo
-            guard let dataFromServiceRS_Doc = data,
-                  let dictionary = try? JSONSerialization.jsonObject(with: dataFromServiceRS_Doc, options: []) as? [String: Any] else{
-                      
-                    return
-                }
-            /*
-             Todos los llamados a la UI se hace el en main thread
-             */
-            DispatchQueue.main.async {
-                //  Se llama al textlabel que contiene la informacion que se va a subir en este cas: lblAttach
-                self.lblAttach.text = dictionary["Adjunto"] as? String
-            }
-            
-            
-        }.resume() //Con este .resume() se ejecuta el request
-        print("entro a la API")
-
-
-    }
-    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        // get Cities
+        bllGetCities()
         // Setup View
         setupView()
-        
         //config list documentID
         setupViewDocumentID()
-        
-        // config list cities
-        setupViewCities()
-        
         // config list add
         setupViewAdd()
-        
         // config list attach
         setupViewAttach()
-        
-        
     }
   
-  
-
+    
+  // MARK: - setupView Controles de la vista
+    fileprivate func setupView() {
+        
+        // Configure Password Validation Label
+        messageValidate.isHidden = true
+        
+        // textfield hidden Document ID for store data
+        documentID.isHidden = true
+        
+        // textfield hidden city for store data
+        city.isHidden = true
+        
+        // textfield hidden city for store data
+        add.isHidden = true
+        
+        // textfield hidden attach document for store data
+        attach.isHidden = true
+        
+        // Update Save Button
+        sendDocBtn.isEnabled = false
+        
+        // set textField email
+        emailTextField.text = Stored_Email
+        
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func sendBtnAction(_ sender: UIButton) {
+        bllPostSendDoc()
+        
+       
+    }
+    
     // MARK: - Show document ID
     
     @IBAction func showDocumentIDOption(_ sender: UIButton) {
@@ -153,129 +136,6 @@ class SendDocsViewController: UIViewController {
     // MARK: - Show attach document
     @IBAction func showAttachOption(_ sender: UIButton) {
         dropDownAttach.show()
-    }
-    
-    
-    // MARK: - Config show drop down document ID
-    fileprivate func setupViewDocumentID() {
-        lbldocumentID.text = TEXT_DEFAULT_ATTACHDOCUMENT
-        dropDowndocumentID.anchorView = vmdocumentIDDropDown
-        dropDowndocumentID.dataSource = docID
-        dropDowndocumentID.bottomOffset = CGPoint(x: 0, y:(dropDowndocumentID.anchorView?.plainView.bounds.height)!)
-        dropDowndocumentID.topOffset = CGPoint(x: 0, y:-(dropDowndocumentID.anchorView?.plainView.bounds.height)!)
-        dropDowndocumentID.direction = .bottom
-        // cuando le dan clic a la opcion
-        dropDowndocumentID.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.lbldocumentID.text = docID[index]
-            self.documentID.text = docID[index]
-            validateFieldDidChange(self.documentID)
-        }
-    }
-    
-    // MARK: - Config show drop down cities
-    fileprivate func setupViewCities() {
-        lblCities.text = TEXT_DEFAULT_CITY
-        dropDownCities.anchorView = vmCitiesDropDown
-        dropDownCities.dataSource = cities
-        dropDownCities.bottomOffset = CGPoint(x: 0, y:(dropDownCities.anchorView?.plainView.bounds.height)!)
-        dropDownCities.topOffset = CGPoint(x: 0, y:-(dropDownCities.anchorView?.plainView.bounds.height)!)
-        dropDownCities.direction = .bottom
-        // cuando seleccionan una opcion
-        dropDownCities.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.lblCities.text = cities[index]
-            self.city.text = cities[index]
-            validateFieldDidChange(self.city)
-        }
-    }
-
-    // MARK: - Config show drop down add
-    fileprivate func setupViewAdd() {
-        lblAdd.text = TEXT_DEFAULT_ADD
-        dropDownAdd.anchorView = vmAddDropDown
-        dropDownAdd.dataSource = addType
-        dropDownAdd.bottomOffset = CGPoint(x: 0, y:(dropDownAdd.anchorView?.plainView.bounds.height)!)
-        dropDownAdd.topOffset = CGPoint(x: 0, y:-(dropDownAdd.anchorView?.plainView.bounds.height)!)
-        dropDownAdd.direction = .bottom
-        // cuando se selecciona una opcion
-        dropDownAdd.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.lblAdd.text = addType[index]
-            self.add.text = addType[index]
-            validateFieldDidChange(self.add)
-        }
-    }
-    
-    // MARK: - Config show drop down attach
-    fileprivate func setupViewAttach() {
-        lblAttach.text = TEXT_DEFAULT_ATTACHDOCUMENT
-        dropDownAttach.anchorView = vmAttachDropDown
-        dropDownAttach.dataSource = attachDoc
-        dropDownAttach.bottomOffset = CGPoint(x: 0, y:(dropDownAttach.anchorView?.plainView.bounds.height)!)
-        dropDownAttach.topOffset = CGPoint(x: 0, y:-(dropDownAttach.anchorView?.plainView.bounds.height)!)
-        dropDownAttach.direction = .bottom
-        // cuando seleccionan una opcion
-        dropDownAttach.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.lblAttach.text = attachDoc[index]
-            self.attach.text = attachDoc[index]
-            validateFieldDidChange(self.attach)
-            
-            if(attachDoc[index] == "Cargar foto") {
-                self.getDocLibrary()
-            }else{
-                self.getDocCamera()
-            }
-            
-            
-        }
-    }
-    // MARK: - Function for get document from library
-    fileprivate func getDocLibrary() {
-        
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
-        
-    }
-    // MARK: - Function for get document from library
-    fileprivate func getDocCamera() {
-        if (UIImagePickerController.isSourceTypeAvailable(.camera))  {
-                
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
-        }else {
-            print("Dispositivo no tiene camara")
-            messageValidate.text = "Dispositivo no tiene camara"
-            messageValidate.isHidden = false
-        }
-        
-    }
-    // MARK: - View Methods
-    fileprivate func setupView() {
-        // Configure Password Validation Label
-        messageValidate.isHidden = true
-        
-        // textfield hidden Document ID for store data
-        documentID.isHidden = true
-        
-        // textfield hidden city for store data
-        city.isHidden = true
-        
-        // textfield hidden city for store data
-        add.isHidden = true
-        
-        // textfield hidden attach document for store data
-        attach.isHidden = true
-        
-        // Update Save Button
-        sendDocBtn.isEnabled = true
-        
-        // set textField email
-        emailTextField.text = Stored_Email
-        
     }
     
     // MARK: - function that validate each fields
@@ -346,6 +206,197 @@ class SendDocsViewController: UIViewController {
         messageValidate.isHidden = true
     }
     
+    
+    // MARK: - Funciones comunes
+    // logica de negocio para obtener las ciudades
+    private func bllGetCities() {
+        service.getCitiesAPI()
+        service.completionHandlerGetCities { [weak self] (cities, status, message) in
+            var citiesLocal = [""];
+            if status {
+                guard let self = self else {return}
+                guard let _cities = cities else {return}
+                self.objCities = _cities
+            }
+            
+            let cits = self?.objCities?.Items
+            // set de ciudades al array local para copiarlos al original DataSource DropDown
+            cits?.forEach( { c in
+                citiesLocal.append(c.Ciudad)
+                
+            })
+            // eliminar la primera posicion que esta vacia
+            citiesLocal.remove(at: 0)
+            // eliminar repetidos
+            self?.cities = Array(Set(citiesLocal))
+            // config list cities
+            self?.setupViewCities()
+        }
+    }
+
+    // MARK: - cleanFieldForm Limpiar campos del formulario
+    private func cleanFieldForm() {
+        // limpiar
+        self.documentID.text = ""
+        self.numberIDTextField.text = ""
+        self.nameTextField.text = ""
+        self.lastNameTextField.text = ""
+        self.city.text = ""
+        self.emailTextField.text = ""
+        self.add.text = ""
+        self.imageBase64 = ""
+        
+        self.lbldocumentID.text = TEXT_DEFAULT_ATTACHDOCUMENT
+        self.lblCities.text = TEXT_DEFAULT_CITY
+        self.lblAdd.text = TEXT_DEFAULT_ADD
+        self.lblAttach.text = TEXT_DEFAULT_ATTACHDOCUMENT
+        
+        
+        self.setupView()
+    }
+    // logica de negocio para enviar documento
+    private func bllPostSendDoc() {
+        service.sendDocumentAPI(
+            TipoId:documentID.text,
+            Identificacion:numberIDTextField.text,
+            Nombre:nameTextField.text,
+            Apellido:lastNameTextField.text,
+            Ciudad:city.text,
+            Correo:emailTextField.text,
+            TipoAdjunto:add.text,
+            Adjunto:imageBase64
+        )
+        
+        service.completionHandlerSendDoc { [weak self] (status, message) in
+            if !status {
+                guard let self = self else {return}
+                print(message)
+                self.messageValidate.text = message
+                self.messageValidate.isHidden = false
+            }else {
+                self?.alertSuccesSendDoc()
+            }
+
+        }
+    }
+    
+
+    // MARK: - Config show drop down document ID
+    fileprivate func setupViewDocumentID() {
+        lbldocumentID.text = TEXT_DEFAULT_ATTACHDOCUMENT
+        dropDowndocumentID.anchorView = vmdocumentIDDropDown
+        dropDowndocumentID.dataSource = docID
+        dropDowndocumentID.bottomOffset = CGPoint(x: 0, y:(dropDowndocumentID.anchorView?.plainView.bounds.height)!)
+        dropDowndocumentID.topOffset = CGPoint(x: 0, y:-(dropDowndocumentID.anchorView?.plainView.bounds.height)!)
+        dropDowndocumentID.direction = .bottom
+        /* cuando le dan clic a la opcion
+         */
+        dropDowndocumentID.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.lbldocumentID.text = docID[index]
+            self.documentID.text = docID[index]
+            validateFieldDidChange(self.documentID)
+        }
+    }
+    
+    // MARK: - Config show drop down cities
+    fileprivate func setupViewCities() {
+        lblCities.text = TEXT_DEFAULT_CITY
+        dropDownCities.anchorView = vmCitiesDropDown
+        dropDownCities.dataSource = cities
+        dropDownCities.bottomOffset = CGPoint(x: 0, y:(dropDownCities.anchorView?.plainView.bounds.height)!)
+        dropDownCities.topOffset = CGPoint(x: 0, y:-(dropDownCities.anchorView?.plainView.bounds.height)!)
+        dropDownCities.direction = .bottom
+        /* cuando le dan clic a la opcion
+         */
+        dropDownCities.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.lblCities.text = cities[index]
+            self.city.text = cities[index]
+            validateFieldDidChange(self.city)
+        }
+    }
+
+    // MARK: - Config show drop down add
+    fileprivate func setupViewAdd() {
+        lblAdd.text = TEXT_DEFAULT_ADD
+        dropDownAdd.anchorView = vmAddDropDown
+        dropDownAdd.dataSource = addType
+        dropDownAdd.bottomOffset = CGPoint(x: 0, y:(dropDownAdd.anchorView?.plainView.bounds.height)!)
+        dropDownAdd.topOffset = CGPoint(x: 0, y:-(dropDownAdd.anchorView?.plainView.bounds.height)!)
+        dropDownAdd.direction = .bottom
+        /* cuando le dan clic a la opcion
+         */
+        dropDownAdd.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.lblAdd.text = addType[index]
+            self.add.text = addType[index]
+            validateFieldDidChange(self.add)
+        }
+    }
+    
+    // MARK: - Config show drop down attach
+    fileprivate func setupViewAttach() {
+        lblAttach.text = TEXT_DEFAULT_ATTACHDOCUMENT
+        dropDownAttach.anchorView = vmAttachDropDown
+        dropDownAttach.dataSource = attachDoc
+        dropDownAttach.bottomOffset = CGPoint(x: 0, y:(dropDownAttach.anchorView?.plainView.bounds.height)!)
+        dropDownAttach.topOffset = CGPoint(x: 0, y:-(dropDownAttach.anchorView?.plainView.bounds.height)!)
+        dropDownAttach.direction = .bottom
+        /* cuando le dan clic a la opcion
+         */
+        dropDownAttach.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.lblAttach.text = attachDoc[index]
+            self.attach.text = attachDoc[index]
+            validateFieldDidChange(self.attach)
+            
+            if(attachDoc[index] == "Cargar foto") {
+                self.getDocLibrary()
+            }else{
+                self.getDocCamera()
+            }
+            
+            
+        }
+    }
+    // MARK: - Function for get document from library
+    fileprivate func getDocLibrary() {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+    }
+    // MARK: - Function for get document from library
+    fileprivate func getDocCamera() {
+        if (UIImagePickerController.isSourceTypeAvailable(.camera))  {
+                
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        }else {
+            print("Dispositivo no tiene camara")
+            messageValidate.text = "Dispositivo no tiene camara"
+            messageValidate.isHidden = false
+        }
+        
+    }
+
+
+    // MARK: - show alertSuccesSendDoc
+    private func alertSuccesSendDoc(){
+        let alert = UIAlertController(title: "Carga Exitosa", message: "El Documento fue cargado exitosamente", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+            action in
+            
+            self.cleanFieldForm()
+            
+        }))
+        present(alert, animated: true)
+    }
+
+    
     func textFieldValidatorEmail(_ string: String) -> Bool {
             
             let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}" // short format
@@ -358,6 +409,8 @@ class SendDocsViewController: UIViewController {
         return imageData?.base64EncodedString(options:
                     Data.Base64EncodingOptions.lineLength64Characters)
     }
+    
+
 }
 
 
@@ -370,8 +423,20 @@ extension SendDocsViewController: UIImagePickerControllerDelegate, UINavigationC
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             //print(image)
-            imageBase64 = convertImageToBase64(image: image)
-            validateFieldDidChange(attach)
+
+            guard let imgData = image.pngData() else {return}
+
+            
+            let imgSize: Int = (imgData.count / 10000)
+            print("actual size of image in KB: %f ", imgSize)
+            if(imgSize <= 150){
+                imageBase64 = convertImageToBase64(image: image)
+                validateFieldDidChange(attach)
+            }else {
+                messageValidate.text = "La imagen no puede superar los 150KB"
+                messageValidate.isHidden = false
+                return
+            }
         }else {
             messageValidate.text = "Image not found!"
             messageValidate.isHidden = false
