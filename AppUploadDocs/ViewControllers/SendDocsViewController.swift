@@ -407,7 +407,7 @@ class SendDocsViewController: UIViewController{
     func convertImageToBase64(image: UIImage) -> String? {
         let imageData = image.jpegData(compressionQuality: 1)
         return imageData?.base64EncodedString(options:
-                    Data.Base64EncodingOptions.lineLength64Characters)
+                    Data.Base64EncodingOptions.lineLength64Characters)        
     }
     
 

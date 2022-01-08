@@ -12,13 +12,22 @@ class ServiceSophos {
     fileprivate let UrlGetCities = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Oficinas"
     fileprivate let UrlGetOffice = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Oficinas"
     fileprivate let UrlPostDocument = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos"
+    fileprivate let UrlGetDocuments = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos"
     
     // MARK: - variable que completara el servicio con los datos obtenidos de la API
     typealias citiesCallBack = (_ cities: ResultCities?, _ status: Bool, _ message:String) -> Void
     var callBackCity:citiesCallBack?
+  
     
     typealias sendDocCallBack = (_ status: Bool, _ message:String) -> Void
     var callBackSendDoc:sendDocCallBack?
+    
+    typealias documentCallBack = (_ document: ResultDocuments?, _ status: Bool, _ message:String) -> Void
+    var callBackDocument : documentCallBack?
+    
+    typealias viewDocumentCallBack = (_ viewDocument: ResultViewDocument?, _ status: Bool, _ message:String) -> Void
+    var callBackViewDocument : viewDocumentCallBack?
+  
     
     init(){}
     
@@ -46,6 +55,34 @@ class ServiceSophos {
             } catch {
                 print(error)
                 self.callBackCity?(nil, false, error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - getDocumentsAPI
+    func getDocumentsAPI(email : String!){
+        print("Running getDocumentsAPI")
+        let UrlGetDocuments = UrlGetDocuments + "?correo=" + email
+        guard let endpointGetDocuments = URL(string: UrlGetDocuments) else{
+            print("URL no valida")
+            return
+        }
+        
+        AF.request(endpointGetDocuments, method: .get, parameters: nil, encoding: JSONEncoding.default).response {(responseData) in
+            // validar que si llega la data de la API
+            guard let data = responseData.data else {
+                print("no data - getDocument")
+                self.callBackDocument?(nil, false, "no data - getDocument")
+                return
+            }
+            do {
+                // serializar la data en el modelo
+                let document = try JSONDecoder().decode(ResultDocuments.self, from: data)
+                self.callBackDocument?(document, true, "")
+                
+            } catch {
+                print(error)
+                self.callBackDocument?(nil, false, error.localizedDescription)
             }
         }
     }
@@ -86,6 +123,37 @@ class ServiceSophos {
             }
         }
     
+
+    // MARK: - getViewDocumentAPI
+    func getViewDocumentAPI(idResgistro : String!){
+        print("Running getViewDocumentAPI - download image")
+        let UrlGetViewDocument = UrlGetDocuments + "?idRegistro=" + idResgistro
+        guard let endpointGetViewDocuments = URL(string: UrlGetViewDocument) else{
+            print("URL no valida")
+            return
+        }
+        
+        AF.request(endpointGetViewDocuments, method: .get, parameters: nil, encoding: JSONEncoding.default).response {(responseData) in
+            
+            //debugPrint(responseData)
+            // validar que si llega la data de la API
+            guard let data = responseData.data else {
+                print("no data - getDocument")
+                self.callBackViewDocument?(nil, false, "no data - getDocument")
+                
+                return
+            }
+            do {
+                // serializar la data en el modelo
+                let viewDocument = try JSONDecoder().decode(ResultViewDocument.self, from: data)
+                self.callBackViewDocument?(viewDocument, true, "")
+                
+            } catch {
+                print(error)
+                self.callBackViewDocument?(nil, false, error.localizedDescription)
+            }
+        }
+    }
     
     
     // MARK: - completionHandlerCity para llenar la variable que nos envian desde el consumidor de la funcion getCitiesAPI
@@ -99,6 +167,17 @@ class ServiceSophos {
         self.callBackSendDoc = callBack
     }
     
+    // MARK: - completionHandlerGetDoc para llenar la variable que nos envian desde el consumidor de la funcion getDocAPI
+    func completionHandlerGetDoc(callBack: @escaping documentCallBack) {
+        self.callBackDocument = callBack
+        
+    }
+    
+    // MARK: - completionHandlerGetViewDoc para llenar la variable que nos envian desde el consumidor de la funcion getDocAPI
+    func completionHandlerGetViewDoc(callBack: @escaping viewDocumentCallBack) {
+        self.callBackViewDocument = callBack
+        
+    }
         
         
 }
