@@ -14,9 +14,13 @@ class ServiceSophos {
     fileprivate let UrlPostDocument = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos"
     fileprivate let UrlGetDocuments = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com/RS_Documentos"
     
+    
     // MARK: - variable que completara el servicio con los datos obtenidos de la API
     typealias citiesCallBack = (_ cities: ResultCities?, _ status: Bool, _ message:String) -> Void
     var callBackCity:citiesCallBack?
+    
+    typealias officesCallBack = (_ offices: ResultOffice?, _ status: Bool, _ message:String) -> Void
+    var callBackOffices:officesCallBack?
   
     
     typealias sendDocCallBack = (_ status: Bool, _ message:String) -> Void
@@ -154,7 +158,33 @@ class ServiceSophos {
             }
         }
     }
-    
+
+    // MARK: - getOfficesAPI
+    func getOfficesAPI(){
+        print("Running getOfficesAPI")
+        guard let endpointOffices = URL(string: UrlGetOffice) else{
+            print("URL no valida")
+            return
+        }
+        
+        AF.request(endpointOffices, method: .get, parameters: nil, encoding: JSONEncoding.default).response {(responseData) in
+            // validar que si llega la data de la API
+            guard let data = responseData.data else {
+                print("no data - getOfficesAPI")
+                self.callBackOffices?(nil, false, "no data - getOfficesAPI")
+                return
+            }
+            do {
+                // serializar la data en el modelo
+                let offices = try JSONDecoder().decode(ResultOffice.self, from: data)
+                self.callBackOffices?(offices, true, "")
+                
+            } catch {
+                print(error)
+                self.callBackOffices?(nil, false, error.localizedDescription)
+            }
+        }
+    }
     
     // MARK: - completionHandlerCity para llenar la variable que nos envian desde el consumidor de la funcion getCitiesAPI
     func completionHandlerGetCities(callBack: @escaping citiesCallBack) {
@@ -178,6 +208,13 @@ class ServiceSophos {
         self.callBackViewDocument = callBack
         
     }
+    
+    // MARK: - completionHandlerGetOffices para llenar la variable que nos envian desde el consumidor de la funcion getOfficeAPI
+    func completionHandlerGetOffices(callBack: @escaping officesCallBack) {
+        self.callBackOffices = callBack
+        
+    }
+    
         
         
 }
