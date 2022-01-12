@@ -19,9 +19,7 @@ struct Login: View {
     // when firts time user logged in via email store this for future biometric login
     @AppStorage("stored_User") var Stored_User = ""
     @AppStorage("stored_Password") var Stored_Password = ""
-    
-    
-    
+   
     //@Published var store_Info = false
     
     var body: some View {

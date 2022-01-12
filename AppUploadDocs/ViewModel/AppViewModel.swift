@@ -37,16 +37,7 @@ class AppViewModel: ObservableObject {
     }
     
     func signUp(email: String, password: String) {
-        /*auth.createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            // Success
-            DispatchQueue.main.async {
-                self?.signedIn = false
-            }
-        }*/
+    
     }
     
     func signOut() {
@@ -133,4 +124,5 @@ class AppViewModel: ObservableObject {
             let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
             return emailPredicate.evaluate(with: string)
     }
+    
 }

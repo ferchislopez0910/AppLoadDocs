@@ -69,7 +69,11 @@ class SendDocsViewController: UIViewController{
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        /*let _action = self.navigationItem.leftBarButtonItem?.action
+        let backButton = UIBarButtonItem(title: "< Regresar", style: .plain, target: self, action:@selector(pop))
+        self.navigationItem.leftBarButtonItem = backButton
+        */
         // get Cities
         bllGetCities()
         // Setup View
@@ -80,9 +84,12 @@ class SendDocsViewController: UIViewController{
         setupViewAdd()
         // config list attach
         setupViewAttach()
+        
+        
+
+        
     }
   
-    
   // MARK: - setupView Controles de la vista
     fileprivate func setupView() {
         
@@ -408,6 +415,12 @@ class SendDocsViewController: UIViewController{
         let imageData = image.jpegData(compressionQuality: 1)
         return imageData?.base64EncodedString(options:
                     Data.Base64EncodingOptions.lineLength64Characters)        
+    }
+    
+    func textFieldValidatornumberIDTextField(_ string: String) -> Bool {
+            let numberIDTextFieldFormat = "[0-9]{2,64}" // short format
+            let numberIDTextFieldPredicate = NSPredicate(format:"SELF MATCHES %@", numberIDTextFieldFormat)
+            return numberIDTextFieldPredicate.evaluate(with: string)
     }
     
 

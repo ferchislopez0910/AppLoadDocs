@@ -32,10 +32,7 @@ class HomeViewController: UIViewController {
         print(Stored_Name)
         // Do any additional setup after loading the view.
     }
-    
-    
-    
-    
+
     
     // MARK: - Navigation
     

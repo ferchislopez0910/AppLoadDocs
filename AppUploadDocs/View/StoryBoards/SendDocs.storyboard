@@ -219,7 +219,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XKJ-3C-prt"/>
+                    <navigationItem key="navigationItem" id="XKJ-3C-prt">
+                        <barButtonItem key="backBarButtonItem" title="Regresar" id="0xR-TB-U2k"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="add" destination="43e-pC-0vC" id="Ga8-gb-3H4"/>
                         <outlet property="attach" destination="Vq8-Wr-ynG" id="z5t-KP-ElT"/>

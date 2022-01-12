@@ -1,7 +1,7 @@
 //
 //  ViewDocDetailController.swift
 //  AppUploadDocs
-//
+//  Clase para mostrar la Imagen
 //  Created by Valeria Castaño on 7/01/22.
 //
 
@@ -25,7 +25,7 @@ class ViewDocDetailController: UIViewController {
     }
     
     // MARK: - Funciones comunes
-    // logica de negocio para obtener las ciudades
+    // Obtener la imagen
     private func bllGetImage() {
         service.getViewDocumentAPI(idResgistro: idRegistro)
         service.completionHandlerGetViewDoc { [weak self] (viewDocument, status, message) in
